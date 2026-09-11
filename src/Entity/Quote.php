@@ -15,7 +15,7 @@ class Quote
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $title = null;
-a
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $author = null;
 
