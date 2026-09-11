@@ -1,5 +1,5 @@
 <?php
-
+a
 namespace App\Entity;
 
 use App\Repository\QuoteRepository;
