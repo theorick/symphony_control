@@ -72,3 +72,51 @@ Application web développée avec **Symfony 7** permettant de constituer et gér
    ```bash
    git clone <url-du-repo>
    cd symphony_control
+
+Configurer l'environnement
+    Bash
+
+    cp .env .env.local
+
+    Démarrer les conteneurs Docker
+    Bash
+
+    docker compose up -d
+
+    Installer les dépendances PHP
+    Bash
+
+    docker exec -it symfony_app composer install
+
+    Initialiser la base de données
+    Bash
+
+    docker exec -it symfony_app php bin/console doctrine:database:create
+    docker exec -it symfony_app php bin/console doctrine:migrations:migrate --no-interaction
+
+🌐 Accès aux Services
+
+    Application Web : http://localhost:8000
+
+    phpMyAdmin : http://localhost:8080
+
+    MailDev (si configuré) : http://localhost:1080
+
+🛠 Commandes Utiles
+Bash
+
+# Vider le cache de l'application
+docker exec -it symfony_app php bin/console cache:clear
+
+# Afficher la liste des routes
+docker exec -it symfony_app php bin/console debug:router
+
+# Créer une nouvelle migration après modification d'une entité
+docker exec -it symfony_app php bin/console make:migration
+
+# Consulter les logs Docker du serveur applicatif
+docker logs -f symfony_app
+
+👤 Auteur
+
+Théo Meuriot
